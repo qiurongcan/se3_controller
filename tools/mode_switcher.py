@@ -30,7 +30,8 @@ if __name__ == "__main__":
         print("[Usage]: python mode_switcher.py [OFFBOARD | AUTO.LOITER | POSCTL]\
               \n[OFFBOARD]: code control \
               \n[AUTO.LOITER]: GNSS can be used\
-              \n[POSCTL]: no GNSS, use VIO/LIO pose")
+              \n[POSCTL]: no GNSS, use VIO/LIO pose\
+              \n[AUTO.LAND]: Auto Land]")
         sys.exit(1)
         
     mode = sys.argv[1]
@@ -38,6 +39,6 @@ if __name__ == "__main__":
     
     # 简单的安全提示
     if mode == "OFFBOARD":
-        print("[WARNING]: Ensure your control script (Script 3) is running NOW before switching!")
+        print("[WARNING]: Ensure your control script (Script 3) is running NOW before switching!!!")
         
     change_mode(mode)
