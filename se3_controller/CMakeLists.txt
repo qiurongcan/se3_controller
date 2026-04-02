@@ -15,7 +15,6 @@ find_package(catkin REQUIRED COMPONENTS
   dynamic_reconfigure
   quadrotor_msgs
   math_utils
-  # airsim_ros_pkgs
 )
 
 find_package(Eigen3 REQUIRED)
@@ -48,18 +47,3 @@ target_link_libraries(se3_controller_node
   ${catkin_LIBRARIES}
 )
 
-# add_executable(${PROJECT_NAME}_example_airsim_node 
-#   src/se3_example_airsim.cpp
-# )
-
-# target_link_libraries(${PROJECT_NAME}_example_airsim_node
-#   ${catkin_LIBRARIES}
-# )
-
-# add_executable(${PROJECT_NAME}_example_node 
-#   src/se3_example.cpp
-# )
-
-# target_link_libraries(${PROJECT_NAME}_example_node
-#   ${catkin_LIBRARIES}
-# )

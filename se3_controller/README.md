@@ -8,57 +8,7 @@
 
 **Important!!!: cancel the comment "#define VEL_IN_BODY" and comment "#define AIRSIM" at the beginning of se3_controller/include/se3_controller/se3_controller.hpp**
 
-```
-sudo apt install ros-noetic-ddynamic-reconfigure
-cd catkin_ws/src
-git clone https://github.com/HITSZ-MAS/se3_controller.git
-cd ..
-catkin_make -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes
-source ./devel/setup.zsh
-roslaunch px4 mavros_posix_sitl.launch
-roslaunch se3_controller px4_example.launch
-```
 
-dynamic tune param & set desire p and euler angle
-
-![image-20221028231036756](attachments/image-20221028231036756.png)
-
-see se3_example.cpp for more details. 
-
-![se3_example](attachments/se3_example.gif)
-
-real world exp
-
-![se3_controller_realworld_exp](attachments/se3_controller_realworld_exp-16676169734941.gif)
-
-### 1.2 AirSim (for RM competition)
-
-**Important!!!: cancel the comment "#define AIRSIM" and comment "#define VEL_IN_BODY" at the beginning of se3_controller/include/se3_controller/se3_controller.hpp**
-
-```
-// open airsim simulate env
-cd ${your folder}/simulator_LINUX
-python launcher.py
-cd ${your folder}/roswrapper/ros
-catkin build
-
-gedit ~/.zshrc
-source ${your folder}/roswrapper/ros/devel/setup.zsh // add to ~/.zshrc, or you can set your path in CMakeLists.txt as shown in se3_controller/CMakeLists.txt
-
-roslaunch airsim_ros_pkgs airsim_node.launch host_ip:=127.0.0.1
-
-// controller
-cd ${your workspace}/src
-git clone https://github.com/HITSZ-MAS/se3_controller.git
-cd ..
-catkin_make -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes
-source ./devel/setup.zsh
-roslaunch se3_controller airsim_example.launch
-```
-
-the main difference between PX4 and AirSim is the definition of the frame
-
-![PX4_vs_AirSim](attachments/PX4_vs_AirSim.jpg)
 
 ## 2 Theory
 
